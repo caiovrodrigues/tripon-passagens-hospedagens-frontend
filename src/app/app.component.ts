@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tripon-passagens-hospedanges-frontend';
+  title = 'tripon-passagens-hospedagens-frontend';
 }
