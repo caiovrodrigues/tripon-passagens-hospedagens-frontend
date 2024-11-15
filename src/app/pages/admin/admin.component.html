@@ -1,0 +1,10 @@
+@if (userLogado$ | async; as user) {
+    <h4>Seja bem vindo {{user.username}}</h4>
+    <ul>
+        @for (user of users; track $index) {
+            <li>{{user.username}}  - {{user.password}}</li>
+        }
+    </ul>
+}@else {
+    <h4>Página somente para administradores!!</h4>
+}
