@@ -1,10 +1,12 @@
 <div class="flex align-items-center gap-2 logo-area cursor-pointer px-3" routerLink="">
-    <img ngSrc="assets/logo-airplane.png" routerLink="" width="45" height="45" class="sm:w-4rem sm:h-4rem"/>
+    <img ngSrc="assets/logo-airplane.png" routerLink="" priority width="45" height="45" class="sm:w-4rem sm:h-4rem"/>
     <h1 class="logo-title text-xl sm:text-4xl">TripON</h1>
 </div>
 
-@if(usuarioLogado$ | async; as user){
-    <a routerLink="admin">Admin</a>
+@if((usuarioLogado$ | async); as user){
+    @if (user.roles.includes('ADMIN')) {
+        <a routerLink="admin">Admin</a>
+    }
 }
 
 <div class="flex align-items-center gap-3">

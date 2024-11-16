@@ -22,5 +22,9 @@ export class AuthService {
   todosUsuarios(): Observable<Usuario[]> {
     return this.http.get<Array<Usuario>>(environment.baseUrl + 'api/usuarios/todos');
   }
+  
+  isAdmin(): Observable<void>{
+    return this.http.get<void>(environment.baseUrl + 'api/usuarios/is-admin')
+  }
 
 }
