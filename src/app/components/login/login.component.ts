@@ -35,7 +35,7 @@ export class LoginComponent {
           this.userData.saveToken(authDetails.token);
           this.userData.setUsuarioLogado(authDetails.data)
           this.dialogRef.close();
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: `Autenticado! Seja bem vindo ${authDetails.data.username}` });
+          this.messageService.add({ severity: 'success', summary: 'Autenticado', detail: `Seja bem vindo ${authDetails.data.username}` });
         },
         error: (err) => {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Credenciais inválidas' });
