@@ -9,6 +9,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
+import { ToastModule } from 'primeng/toast';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,9 @@ import { AuthService } from './services/auth.service';
 import { TokenInjection } from './interceptors/token.injection.interceptor';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { NgOptimizedImage } from '@angular/common';
+import { MessageService } from 'primeng/api';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { HeroComponent } from './components/hero/hero.component';
     HeaderComponent,
     LoginComponent,
     AdminComponent,
+    HomeComponent,
     HeroComponent
   ],
   imports: [
@@ -36,6 +41,7 @@ import { HeroComponent } from './components/hero/hero.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgOptimizedImage,
     //PrimeNG
     ButtonModule,
     MenubarModule,
@@ -43,12 +49,15 @@ import { HeroComponent } from './components/hero/hero.component';
     BadgeModule,
     InputTextModule,
     CheckboxModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    ToastModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInjection, multi: true},
     DialogService, 
-    AuthService],
+    AuthService,
+    MessageService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { adminGuard } from './guards/admin.guard';
 import { AdminComponent } from './pages/admin/admin.component';
-import { HeroComponent } from './components/hero/hero.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HeroComponent, pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] }
 ];
 

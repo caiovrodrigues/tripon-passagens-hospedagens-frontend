@@ -1,0 +1,39 @@
+:host{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    background-color: transparent;
+    max-width: 1376px;
+    margin: auto;
+}
+
+@media (max-width: 1376px) {
+    :host{
+        padding: 10px;
+    }
+}
+
+
+.logo-area{
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(0px) saturate(180%);
+
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.75);
+    transition: .2s;
+}
+
+.logo-area:hover{
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.75);
+}
+
+.logo-title{
+    line-height: 1;
+    background-image: linear-gradient(to top left,#5ee7df,#b490ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
