@@ -7,7 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },
-  { path: '**', component: HomeComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

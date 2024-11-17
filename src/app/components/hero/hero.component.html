@@ -27,6 +27,48 @@
       </svg>
     </div>
     <!--Waves end-->
-    <div class="modal-pesquisa">
+    <div class="modal-pesquisa-area">
+      <div class="modal-pesquisa flex flex-column md:flex-row gap-2 align-items-center justify-content-between">
+        <p-cascadeSelect 
+          [(ngModel)]="selectedCity" 
+          [options]="countries"
+          optionLabel="cname"
+          optionGroupLabel="name"
+          [optionGroupChildren]="['states', 'cities']"
+          [style]="{ minWidth: '14rem' }" 
+          placeholder="Selecione seu destino">
+          <ng-template pTemplate="option" let-option>
+              <div class="flex align-items-center gap-2">
+                  <img 
+                      src="{{option.flagUrl}}"
+                      *ngIf="option.states" 
+                      class="w-2rem" style="aspect-ratio: 2/1;"/>
+                  <i class="pi pi-compass mr-2" *ngIf="option.cities"></i>
+                  <i class="pi pi-map-marker mr-2" *ngIf="option.cname"></i>
+                  <span>{{ option.cname || option.name }}</span>
+              </div>
+          </ng-template>
+      </p-cascadeSelect>
+      <p-calendar 
+      [(ngModel)]="dataIda" 
+      dateFormat="dd/mm/yy"
+      [showIcon]="true" 
+      [showOnFocus]="false" 
+      [minDate]="dataMinima"
+      inputId="buttondisplay"
+      placeholder="Data de ida"
+      />
+      <p-calendar 
+      [(ngModel)]="dataVolta" 
+      dateFormat="dd/mm/yy"
+      [showIcon]="true" 
+      [showOnFocus]="false" 
+      [minDate]="dataMinima"
+      inputId="buttondisplay"
+      placeholder="Data de volta"
+      />
+
+      <p-button label="Pesquisar" icon="pi pi-search" [rounded]="true" severity="primary" />
+      </div>
     </div>
 </div>

@@ -5,25 +5,31 @@ import { ButtonModule } from 'primeng/button';
 
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
+import { CalendarModule } from 'primeng/calendar';
+import { CarouselModule } from 'primeng/carousel';
+import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
+import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 
+
+import { NgOptimizedImage } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HeroComponent } from './components/hero/hero.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './services/auth.service';
+import { TopDestinationComponent } from './components/top-destination/top-destination.component';
 import { TokenInjection } from './interceptors/token.injection.interceptor';
 import { AdminComponent } from './pages/admin/admin.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { NgOptimizedImage } from '@angular/common';
-import { MessageService } from 'primeng/api';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,8 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     AdminComponent,
     HomeComponent,
-    HeroComponent
+    HeroComponent,
+    TopDestinationComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,11 @@ import { HomeComponent } from './pages/home/home.component';
     InputTextModule,
     CheckboxModule,
     DynamicDialogModule,
-    ToastModule
+    ToastModule,
+    CarouselModule,
+    TagModule,
+    CascadeSelectModule,
+    CalendarModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInjection, multi: true},

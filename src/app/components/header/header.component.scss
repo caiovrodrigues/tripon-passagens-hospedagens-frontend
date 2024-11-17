@@ -1,11 +1,15 @@
 :host{
+    position: absolute;
+    z-index: 99;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     background-color: transparent;
     max-width: 1376px;
-    margin: auto;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
     // Talvez colocar um background quando der scroll na página (header fixo)
     // background-color: rgba(255, 255, 255, .5);
     // backdrop-filter: blur(20px) saturate(180%);

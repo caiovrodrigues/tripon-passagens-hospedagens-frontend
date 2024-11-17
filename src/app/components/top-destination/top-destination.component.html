@@ -1,0 +1,38 @@
+<h1 class="text-center text-800 text-2xl sm:text-4xl">Hotéis mais visitados</h1>
+<p-carousel 
+    [value]="hoteis" 
+    [numVisible]="4" 
+    [numScroll]="1" 
+    [circular]="true" 
+    [responsiveOptions]="responsiveOptions" 
+    autoplayInterval="5500">
+    <ng-template let-hotel pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 p-3">
+                <div class="mb-3">
+                    <div class="relative mx-auto img-hotel-area">
+                        <img 
+                            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/1a/ea/54/hotel-presidente-4s.jpg?w=900&h=500&s=1" 
+                            [alt]="hotel.nome" 
+                            class="w-full border-round img-hotel" />
+                        <p-tag 
+                            [value]="hotel.inventoryStatus" 
+                            [severity]="getSeverity('INSTOCK')" 
+                            class="absolute" 
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                    </div>
+                </div>
+                <div class="mb-3 font-medium">
+                    {{ hotel.nome }}
+                </div>
+                <div class="flex justify-content-between align-items-center">
+                <div class="mt-0 font-semibold text-xl">
+                    {{ '$' + hotel.quartos }}
+                </div>
+                    <span>
+                        <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
+                        <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+                    </span>
+                </div>
+            </div>
+        </ng-template>
+</p-carousel>

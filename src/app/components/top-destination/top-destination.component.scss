@@ -1,0 +1,21 @@
+:host{
+    display: block;
+    padding: 50px 0 0 0;
+    max-width: 1376px;
+    width: 100%;
+    margin: auto;
+}
+
+.img-hotel-area{
+    overflow: hidden;
+
+    .img-hotel{
+        transition: .4s;
+    }
+
+    .img-hotel:hover{
+        transform: scale(1.1);
+    }
+}
+
+

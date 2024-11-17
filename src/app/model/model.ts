@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 3.2.1263 on 2024-11-15 12:22:54.
+// Generated using typescript-generator version 3.2.1263 on 2024-11-16 20:26:30.
 
 export interface AuditedEntity {
     id: number;
@@ -42,6 +42,7 @@ export interface Hotel extends AuditedEntity {
     quartos: number;
     banheiros: number;
     localizacao: Localidade;
+    imgUrl: string;
 }
 
 export interface HotelComodidades extends NotAuditedEntity {
@@ -93,6 +94,14 @@ export interface JwtTokenResponse {
 export interface LoginRequest {
     email: string;
     password: string;
+}
+
+export interface UsuarioCreate {
+    username: string;
+    email: string;
+    password: string;
+    cpf: string;
+    passwordConfirm: string;
 }
 
 export interface UsuarioResponseDTO {

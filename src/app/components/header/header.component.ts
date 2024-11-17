@@ -25,7 +25,6 @@ export class HeaderComponent {
 
   mostrarLogin(){
     this.ref = this.dialogService.open(LoginComponent, {
-      header: 'Login',
       width: '35vw',
       modal: true,
       breakpoints: {

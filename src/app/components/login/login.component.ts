@@ -13,6 +13,8 @@ import { MessageService } from 'primeng/api';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  cadastroForm!: FormGroup;
+  isLoginActive = true;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private dialogRef: DynamicDialogRef, private userData: UserDataClientService, private messageService: MessageService){}
 
@@ -23,6 +25,14 @@ export class LoginComponent {
       email: ['', Validators.email],
       password: ['', Validators.required]
     });
+
+    this.cadastroForm = this.fb.group({
+      username: [''],
+      email: ['', Validators.email],
+      cpf: null,
+      password: ['', Validators.required],
+      passwordConfirm: ['', Validators.required]
+    })
   }
 
   logar(){
@@ -38,11 +48,29 @@ export class LoginComponent {
           this.messageService.add({ severity: 'success', summary: 'Autenticado', detail: `Seja bem vindo ${authDetails.data.username}` });
         },
         error: (err) => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Credenciais inválidas' });
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Credenciais inválidas' });
         }
       })
-
     }
+  }
+
+  cadastrar(){
+    console.log(this.cadastroForm);
+
+    if(this.cadastroForm.valid){
+      this.authService.criarConta(this.cadastroForm.value).subscribe({
+        next: () => {
+          this.messageService.add({ severity: 'success', summary: 'Criado', detail: `Usuário criado com sucesso` });
+        },
+        error: (err) => {
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Houve um erro ao cadastrar usuário' });
+        }
+      })
+    }
+  }
+
+  trocarFormulario(){
+    this.isLoginActive = !this.isLoginActive;
   }
 
 }
