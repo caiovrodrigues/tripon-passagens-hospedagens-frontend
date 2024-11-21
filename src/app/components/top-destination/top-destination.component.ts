@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Hotel } from '../../model/model';
 import { HotelService } from '../../services/hotel.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-top-destination',

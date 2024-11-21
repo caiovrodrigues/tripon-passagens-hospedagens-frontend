@@ -4,9 +4,7 @@
 </div>
 
 @if((usuarioLogado$ | async); as user){
-    @if (user.roles.includes('ADMIN')) {
-        <a routerLink="admin">Admin</a>
-    }
+    <a routerLink="admin">Admin</a>
 }
 
 <div class="flex align-items-center gap-3">

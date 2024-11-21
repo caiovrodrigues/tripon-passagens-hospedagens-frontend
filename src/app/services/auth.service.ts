@@ -32,4 +32,8 @@ export class AuthService {
     return this.http.get<void>(environment.baseUrl + 'api/usuarios/is-admin')
   }
 
+  isLogado(): Observable<void>{
+    return this.http.get<void>(environment.baseUrl + 'api/usuarios/is-logado');
+  }
+
 }

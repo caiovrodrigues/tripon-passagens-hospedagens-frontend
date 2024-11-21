@@ -30,6 +30,9 @@ import { TokenInjection } from './interceptors/token.injection.interceptor';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthService } from './services/auth.service';
+import { PerfilComponent } from './components-perfil/perfil/perfil.component';
+import { DashboardComponent } from './components-perfil/dashboard/dashboard.component';
+import { HistoricoComponent } from './components-perfil/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { AuthService } from './services/auth.service';
     AdminComponent,
     HomeComponent,
     HeroComponent,
-    TopDestinationComponent
+    TopDestinationComponent,
+    PerfilComponent,
+    DashboardComponent,
+    HistoricoComponent
   ],
   imports: [
     BrowserModule,

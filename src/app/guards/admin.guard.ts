@@ -1,8 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { Observable, take } from 'rxjs';
-import { UserDataClientService } from '../services/user-data-client.service';
 import { MessageService } from 'primeng/api';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 export const adminGuard: CanActivateFn = (route, state) => {
