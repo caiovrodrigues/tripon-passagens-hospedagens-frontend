@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UsuarioResponseDTO } from '../../model/model';
-import { UserDataClientService } from '../../services/user-data-client.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UsuarioInfoResponseDTO } from '../../model/model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,13 +10,38 @@ import { UserDataClientService } from '../../services/user-data-client.service';
 })
 export class PerfilComponent implements OnInit {
 
-  usuarioLogado$!: Observable<UsuarioResponseDTO | null>
+  usuarioInfo!: UsuarioInfoResponseDTO;
+  perfilForm!: FormGroup;
   isMenuOpen: boolean = false;
   
-  constructor(private userData: UserDataClientService){}
+  constructor(private userService: UserService, private fb: FormBuilder){}
 
   ngOnInit(): void {
-    this.usuarioLogado$ = this.userData.usuarioLogado$;
+    this.userService.getDetalhesPerfil().subscribe({
+      next: (usuarioInfo) => {
+        this.usuarioInfo = usuarioInfo;
+        this.setFormWithUsuarioData(usuarioInfo);
+      },
+      error: (err) => console.log("Houveu um erro ao buscar informações do usuário", err)
+    })
+
+    this.perfilForm = this.fb.group({
+      nome: [],
+      sobrenome: [],
+      username: [],
+      email: [],
+      cpf: []
+    })
+  }
+
+  setFormWithUsuarioData(user: UsuarioInfoResponseDTO){
+    this.perfilForm.patchValue({
+      nome: user.nome,
+      sobrenome: user.sobrenome,
+      username: user.username,
+      email: user.email,
+      cpf: user.cpf
+    });
   }
 
   toggleMenuBar(){

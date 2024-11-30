@@ -21,6 +21,14 @@
     :host{
         padding: 10px;
     }
+    
+}
+
+@media (max-width: 656px) {
+    a{
+        display: none;
+    }
+    
 }
 
 

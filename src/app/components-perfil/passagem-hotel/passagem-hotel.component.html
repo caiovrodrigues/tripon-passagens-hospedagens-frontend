@@ -1,0 +1,130 @@
+<h1 class="text-color">Crie passagens/hotéis</h1>
+<p-divider />
+<div class="card flex justify-content-center">
+    <p-selectButton 
+        [options]="stateOptions" 
+        [(ngModel)]="escolhaForm" 
+        optionLabel="label" 
+        optionValue="value" />
+</div>
+
+<div class="flex">
+    @if (escolhaForm === 'passagem-aerea') {
+    <div class="flex flex-column-reverse gap-8" style="max-width: 1100px; width: 100%">
+        <form [formGroup]="passagemForm" (ngSubmit)="submitForm('passagem-aerea')" class="flex flex-column gap-4">
+            
+            <div class="flex flex-column sm:flex-row gap-2">
+                <div class="flex flex-column gap-2">
+                    <label for="origem" class="text-color">Origem</label>
+                    <p-cascadeSelect 
+                        formControlName="origem"
+                        [options]="countries"
+                        optionLabel="cname"
+                        optionGroupLabel="name" 
+                        [optionGroupChildren]="['states', 'cities']"
+                        [style]="{ minWidth: '14rem' }" 
+                        placeholder="Selecione uma cidade" />
+                </div>
+                
+                <div class="flex flex-column gap-2">
+                    <label for="destino" class="text-color">Destino</label>
+                    <p-cascadeSelect 
+                        formControlName="destino"
+                        [options]="countries"
+                        optionLabel="cname"
+                        optionGroupLabel="name" 
+                        [optionGroupChildren]="['states', 'cities']"
+                        [style]="{ minWidth: '14rem' }" 
+                        placeholder="Selecione uma cidade" />
+                    </div>
+            </div>
+
+            <div class="flex flex-column sm:flex-row gap-2">
+                <div class="flex flex-column gap-2">
+                    <label for="dataIda" class="text-color">Data de ida</label>
+                    <p-calendar formControlName="dataIda" [minDate]="dateNow" dateFormat="dd/mm/yy" />
+                </div>
+    
+                <div class="flex flex-column gap-2">
+                    <label for="dataVolta" class="text-color">Data de volta</label>
+                    <p-calendar formControlName="dataVolta" [minDate]="dateNow" dateFormat="dd/mm/yy" />
+                </div>
+            </div>
+
+            <div class="flex flex-column gap-2">
+                <label for="preco" class="text-color">Preço</label>
+                <p-inputNumber 
+                    formControlName="preco"
+                    inputId="currency-br" 
+                    mode="currency" 
+                    currency="BRL" 
+                    locale="pt-BR" /> 
+            </div>
+            <button 
+                pButton 
+                pRipple 
+                label="Criar" 
+                class="p-button-success">
+            </button>
+        </form>
+    </div>
+    }
+
+    @if (escolhaForm === 'hotel') {
+        <div class="flex flex-column-reverse gap-8" style="max-width: 1100px; width: 100%">
+            <form [formGroup]="hotelForm" class="flex flex-column gap-4">
+                
+                <div class="flex flex-column gap-2">
+                    <label for="nome" class="text-color">Nome</label>
+                    <input 
+                        pInputText
+                        id="nome" 
+                        aria-describedby="nome-help" 
+                        formControlName="nome"/>
+                </div>
+                
+                <div class="flex flex-column gap-2">
+                    <label for="descricao" class="text-color">Descrição</label>
+                    <textarea 
+                        rows="5"
+                        cols="30" 
+                        pInputTextarea 
+                        formControlName="descricao">
+                    </textarea>
+                </div>
+    
+                <div class="flex flex-column sm:flex-row gap-2">
+                    <div class="flex flex-column gap-2">
+                        <label for="quartos" class="text-color">Quantidade quartos</label>
+                        <input 
+                            pInputText
+                            id="quartos" 
+                            aria-describedby="quartos-help" 
+                            formControlName="quartos"/>
+                    </div>
+                    
+                    <div class="flex flex-column gap-2">
+                        <label for="banheiros" class="text-color">Quantidade banheiros</label>
+                        <input 
+                            pInputText
+                            id="banheiros" 
+                            aria-describedby="banheiros-help" 
+                            formControlName="banheiros">
+                        </div>
+                </div>
+    
+                <div class="flex flex-column gap-2">
+                    <label for="imgUrl" class="text-color">Imagem URL</label>
+                    <input type="text" pInputText formControlName="imgUrl" />
+                </div>
+                <button 
+                    pButton 
+                    pRipple 
+                    label="Criar" 
+                    class="p-button-success">
+                </button>
+            </form>
+        </div>
+        }
+    
+</div>

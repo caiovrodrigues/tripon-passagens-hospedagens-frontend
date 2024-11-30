@@ -20,10 +20,10 @@ export const adminGuard: CanActivateFn = (route, state) => {
     authService.isAdmin().subscribe({
       next: () => {
         messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Autorizado! Você é um administrador', life: 2000 });
-        subscriber.next();
+        subscriber.next(true);
       },
       error: () => {
-        router.navigateByUrl("");
+        router.navigateByUrl("admin");
         messageService.add({ severity: 'error', summary: 'Erro', detail: 'Somente administradores podem acessar essa rota', life: 2000 });
       }
     });

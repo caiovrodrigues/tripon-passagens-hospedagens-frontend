@@ -14,7 +14,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
-
+import { DividerModule } from 'primeng/divider';
+import { ImageModule } from 'primeng/image';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { NgOptimizedImage } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -33,6 +39,9 @@ import { AuthService } from './services/auth.service';
 import { PerfilComponent } from './components-perfil/perfil/perfil.component';
 import { DashboardComponent } from './components-perfil/dashboard/dashboard.component';
 import { HistoricoComponent } from './components-perfil/historico/historico.component';
+import { PassagemHotelComponent } from './components-perfil/passagem-hotel/passagem-hotel.component';
+import { PassagemListComponent } from './components/passagem-list/passagem-list.component';
+import { PassagemComponent } from './components-perfil/passagem/passagem.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +54,10 @@ import { HistoricoComponent } from './components-perfil/historico/historico.comp
     TopDestinationComponent,
     PerfilComponent,
     DashboardComponent,
-    HistoricoComponent
+    HistoricoComponent,
+    PassagemHotelComponent,
+    PassagemListComponent,
+    PassagemComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +80,13 @@ import { HistoricoComponent } from './components-perfil/historico/historico.comp
     TagModule,
     CascadeSelectModule,
     CalendarModule,
+    DividerModule,
+    ImageModule,
+    SelectButtonModule,
+    InputNumberModule,
+    InputTextareaModule,
+    TableModule,
+    DropdownModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInjection, multi: true},

@@ -88,7 +88,7 @@ body.dark-theme {
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-fixed);
+  z-index: 9999999;
   margin: .75rem;
 }
 

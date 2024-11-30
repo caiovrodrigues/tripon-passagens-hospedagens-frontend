@@ -1,32 +1,32 @@
-<h1 class="text-center text-800 text-2xl sm:text-4xl">Hotéis mais visitados</h1>
+<h1 class="text-center text-800 text-2xl sm:text-4xl">Passagens aéreas</h1>
 <p-carousel 
-    [value]="hoteis" 
-    [numVisible]="4" 
+    [value]="passagens" 
+    [numVisible]="3" 
     [numScroll]="1" 
     [circular]="true" 
     [responsiveOptions]="responsiveOptions" 
     autoplayInterval="5500">
-    <ng-template let-hotel pTemplate="item">
+    <ng-template let-passagem pTemplate="item">
             <div class="border-1 surface-border border-round m-2 p-3">
                 <div class="mb-3">
                     <div class="relative mx-auto img-hotel-area">
                         <img 
-                            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/1a/ea/54/hotel-presidente-4s.jpg?w=900&h=500&s=1" 
-                            [alt]="hotel.nome" 
+                            src="https://www.freewayseguros.com/blog/wp-content/uploads/sites/2/2023/09/san-antonio-texas.jpg" 
+                            [alt]="passagem.nome" 
                             class="w-full border-round img-hotel" />
                         <p-tag 
-                            [value]="hotel.inventoryStatus" 
+                            [value]="passagem.inventoryStatus" 
                             [severity]="getSeverity('INSTOCK')" 
                             class="absolute" 
                             [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
                     </div>
                 </div>
                 <div class="mb-3 font-medium">
-                    {{ hotel.nome }}
+                    {{ passagem.origem.cidade }} ({{ passagem.origem.estado }}) - {{ passagem.destino.cidade }} ({{ passagem.destino.estado }})
                 </div>
                 <div class="flex justify-content-between align-items-center">
                 <div class="mt-0 font-semibold text-xl">
-                    {{ 'R$' + hotel.price }}
+                    {{ 'R$' + passagem.preco }}
                 </div>
                     <span>
                         <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />

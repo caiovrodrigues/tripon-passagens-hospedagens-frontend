@@ -1,15 +1,10 @@
-<header class="header" [class.left-pd]="isMenuOpen" id="header">
+<div class="header" [class.left-pd]="isMenuOpen" id="header">
     <div class="header__container">
-       <a href="#" class="header__logo">
-          <i class="ri-cloud-fill"></i>
-          <span>Cloud</span>
-       </a>
-       
        <button class="header__toggle" id="header-toggle" (click)="toggleMenuBar()">
           <i class="ri-menu-line"></i>
        </button>
     </div>
- </header>
+</div>
 
  <!--=============== SIDEBAR ===============-->
  <nav class="sidebar" [class.show-sidebar]="isMenuOpen" id="sidebar">
@@ -29,7 +24,7 @@
 
        <div class="sidebar__content">
           <div>
-             <h3 class="sidebar__title">MANAGE</h3>
+             <h3 class="sidebar__title">ADMINISTRE</h3>
 
              <div class="sidebar__list">
                 <a class="sidebar__link" routerLink="/admin" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
@@ -41,6 +36,16 @@
                    <i class="ri-pie-chart-2-fill"></i>
                    <span>Dashboard</span>
                 </a>
+
+                <a class="sidebar__link" routerLink="passagens-hoteis" routerLinkActive="active-link">
+                  <i class="ri-flight-takeoff-line"></i>
+                  <span>Passagens/Hotéis</span>
+               </a>
+
+               <a class="sidebar__link" routerLink="passagens-hoteis-list" routerLinkActive="active-link">
+                  <i class="ri-file-list-fill"></i>
+                  <span>Lista Passagens/Hotéis</span>
+               </a>
 
                 <a class="sidebar__link" routerLinkActive="active-link">
                    <i class="ri-bar-chart-box-fill"></i>
@@ -54,28 +59,28 @@
 
                 <a class="sidebar__link" routerLinkActive="active-link">
                    <i class="ri-arrow-up-down-line"></i>
-                   <span>Recent Transactions</span>
+                   <span>Transações recentes</span>
                </a>
              </div>
           </div>
 
           <div>
-             <h3 class="sidebar__title">SETTINGS</h3>
+             <h3 class="sidebar__title">CONFIGURAÇÕES</h3>
 
              <div class="sidebar__list">
                 <a class="sidebar__link" routerLinkActive="active-link">
                    <i class="ri-settings-3-fill"></i>
-                   <span>Settings</span>
+                   <span>Configurações</span>
                 </a>
 
                 <a class="sidebar__link" routerLinkActive="active-link">
                    <i class="ri-mail-unread-fill"></i>
-                   <span>My Messages</span>
+                   <span>Mensagens</span>
                 </a>
 
                 <a class="sidebar__link" routerLinkActive="active-link">
                    <i class="ri-notification-2-fill"></i>
-                   <span>Notifications</span>
+                   <span>Notificações</span>
                 </a>
              </div>
           </div>
@@ -84,13 +89,13 @@
        <div class="sidebar__actions">
           <button>
              <i class="ri-moon-clear-fill sidebar__link sidebar__theme" id="theme-button">
-                <span>Theme</span>
+                <span>Tema</span>
              </i>
           </button>
 
           <button class="sidebar__link">
              <i class="ri-logout-box-r-fill"></i>
-             <span>Log Out</span>
+             <span>Sair</span>
           </button>
        </div>
     </div>
